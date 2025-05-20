@@ -5,6 +5,7 @@ plugins {
     id("kotlin-parcelize")
     id("kotlin-kapt")
     kotlin("plugin.serialization") version "1.9.21"
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -40,6 +41,13 @@ android {
     buildFeatures {
         compose = true
     }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/DEPENDENCIES"
+            excludes += "/META-INF/INDEX.LIST"
+        }
+    }
 }
 
 dependencies {
@@ -55,6 +63,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
+    implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -107,4 +116,21 @@ dependencies {
     //Image Loading
     implementation("io.coil-kt.coil3:coil-compose:3.2.0")
     implementation("io.coil-kt.coil3:coil-network-okhttp:3.2.0")
+
+    //firebase
+    implementation(project.dependencies.platform("com.google.firebase:firebase-bom:33.1.1"))
+
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-messaging")
+
+    // Also add the dependency for the Google Play services library and specify its version
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+
+    implementation("com.google.android.gms:play-services-code-scanner:16.1.0")
+    implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.auth:google-auth-library-oauth2-http:1.24.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("co.paystack.android:paystack:3.1.3")
 }
