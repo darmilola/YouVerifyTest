@@ -39,6 +39,7 @@ class WelcomeScreen : AppCompatActivity() {
                     LaunchedEffect(key1 = true) {
                         delay(3000L)
                         startActivity(Intent(this@WelcomeScreen, MainActivity::class.java))
+                        finish()
                     }
                     Column(
                         modifier = Modifier

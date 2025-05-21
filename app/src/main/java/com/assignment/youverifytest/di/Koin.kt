@@ -3,6 +3,7 @@ package com.assignment.youverifytest.di
 import android.util.Log
 import com.assignment.youverifytest.domain.ApiService
 import com.assignment.youverifytest.domain.httpClient
+import com.assignment.youverifytest.domain.shop.ProductNetworkService
 
 import io.ktor.client.HttpClient
 import org.koin.core.context.startKoin
@@ -18,7 +19,7 @@ fun initKoin(){
 }
 
 val networkModule = module {
-    single { provideApiService(get()) }
+    single { provideProductNetworkService(get()) }
     single { provideHttpClient() }
 }
 
@@ -26,6 +27,6 @@ fun provideHttpClient(): HttpClient {
     return httpClient
 }
 
-fun provideApiService(httpClient: HttpClient): ApiService {
-    return ApiService(httpClient)
+fun provideProductNetworkService(httpClient: HttpClient): ProductNetworkService {
+    return ProductNetworkService(httpClient)
 }

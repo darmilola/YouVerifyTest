@@ -10,7 +10,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,11 +26,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import com.assignment.craftsilicontest.component.IconButtonComponent
 import com.assignment.youverifytest.R
+import com.assignment.youverifytest.presentation.Shop.ShopActivity
 import com.assignment.youverifytest.ui.theme.YouVerifyTestTheme
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -39,7 +36,6 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
@@ -58,7 +54,7 @@ class MainActivity : ComponentActivity() {
             try {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account.idToken!!, onAuthSuccessful = {
-                    startActivity(Intent(this@MainActivity, WelcomeScreen::class.java))
+                    startActivity(Intent(this@MainActivity, ShopActivity::class.java))
                 }, onAuthFailed = {})
             } catch (e: ApiException) {}
         }
