@@ -1,7 +1,6 @@
 package com.assignment.youverifytest.di
 
 import android.util.Log
-import com.assignment.youverifytest.domain.ApiService
 import com.assignment.youverifytest.domain.httpClient
 import com.assignment.youverifytest.domain.shop.ProductNetworkService
 
