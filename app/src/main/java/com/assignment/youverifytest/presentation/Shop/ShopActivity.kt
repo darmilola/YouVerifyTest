@@ -1,5 +1,6 @@
 package com.assignment.youverifytest.presentation.Shop
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -52,6 +53,7 @@ import com.assignment.craftsilicontest.component.ImageComponent
 import com.assignment.craftsilicontest.component.IndeterminateCircularProgressBar
 import com.assignment.youverifytest.R
 import com.assignment.youverifytest.domain.models.OrderItem
+import com.assignment.youverifytest.presentation.MainActivity
 import com.assignment.youverifytest.viewmodels.MainViewModel
 import com.assignment.youverifytest.widgets.ErrorOccurredWidget
 import com.assignment.youverifytest.widgets.ProductDetailBottomSheet

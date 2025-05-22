@@ -55,12 +55,8 @@ class MainActivity : ComponentActivity() {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account.idToken!!, onAuthSuccessful = {
                     startActivity(Intent(this@MainActivity, ShopActivity::class.java))
-                }, onAuthFailed = {
-                    startActivity(Intent(this@MainActivity, ShopActivity::class.java))
-                })
-            } catch (e: ApiException) {
-                startActivity(Intent(this@MainActivity, ShopActivity::class.java))
-            }
+                }, onAuthFailed = {})
+            } catch (e: ApiException) {}
         }
         setContent {
             YouVerifyTestTheme {
